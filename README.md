@@ -1,2 +1,2 @@
 # kkp-mobile
-Aplikasi kkp mobile (frontend) | S7H UNINDRA 2019
+Aplikasi KKP Mobile (frontend) | S7H UNINDRA 2019
