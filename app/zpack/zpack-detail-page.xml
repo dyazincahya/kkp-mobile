@@ -1,0 +1,73 @@
+<Page
+    class="page"
+    loaded="onLoaded" 
+    navigatingTo="onNavigatingTo"  
+    xmlns:dd="nativescript-drop-down"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Detail data"></Label>
+    </ActionBar>
+
+    <ScrollView row="0" orientation="vertical" height="100%" width="100%">
+        <GridLayout rows="auto, auto, auto, auto" class="form-container">
+            <StackLayout orientation="vertical" row="0" marginTop="10">
+                <Label text="INFORMASI PEJEMPUTAN" class="form-segment-title" textWrap="true" />
+                <StackLayout>
+                    <Label text="Nama" class="form-label" />
+                    <Label text="{{ customer_nama }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="No Telp" class="form-label" />
+                    <Label text="{{ customer_no_telp }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Kota Tinggal" class="form-label" />
+                    <Label text="{{ customer_kota_tinggal }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Alamat" class="form-label" />
+                    <Label text="{{ customer_alamat }}" class="form-value" textWrap="true" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="1" marginTop="20">
+                <Label text="INFORMASI PAKET" class="form-segment-title"  textWrap="true" />
+                <StackLayout>
+                    <Label text="Isi Paket" class="form-label" />
+                    <Label text="{{ nama }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Keterangan Paket" class="form-label" />
+                    <Label text="{{ keterangan }}" class="form-value" textWrap="true" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="2" marginTop="20">
+                <Label text="INFORMASI TUJUAN" class="form-segment-title"  textWrap="true" />
+                <StackLayout>
+                    <Label text="Provinsi Tujuan Terdekat" class="form-label" />
+                    <Label text="{{ tujuan }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Alamat Lengkap Tujuan" class="form-label" />
+                    <Label text="{{ alamat }}" class="form-value" textWrap="true" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="3" marginTop="20">
+                <Label text="INFORMASI LAINNYA" class="form-segment-title"  textWrap="true" />
+                <StackLayout>
+                    <Label text="Nama Kurir Penjemput" class="form-label" />
+                    <Label text="{{ kurir_nama }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Status Paket" class="form-label" />
+                    <Label text="{{ status }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Perubahan Terakhir" class="form-label" />
+                    <Label text="{{ last_update }}" class="form-value" textWrap="true" />
+                </StackLayout>
+            </StackLayout>
+        </GridLayout>
+    </ScrollView>
+</Page>

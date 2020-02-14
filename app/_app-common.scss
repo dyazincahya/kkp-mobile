@@ -1,0 +1,164 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+// Font icon class
+.fa {
+    font-family: "FontAwesome";
+ }
+
+.t-36 {
+    font-size: 36;
+}
+
+.t-28 {
+    font-size: 28;
+}
+
+.t-24 {
+    font-size: 24;
+}
+
+.t-11 {
+    font-size: 18;
+}
+
+// Common page class
+.page-content {
+    .page-placeholder {
+        color: $page-icon-color;
+        font-size: $page-content-placeholder-font-size;
+        vertical-align: center;
+        horizontal-align: center;
+    }
+
+    .page-icon {
+        font-size: 72;
+        vertical-align: top;
+        horizontal-align: center;
+        color: $page-icon-color;
+        margin-top: 20%;
+    }
+}
+
+//Action bar
+ActionBar .action-bar-title {
+    horizontal-align: center;
+}
+
+TabStripItem Label {
+    color: $blue-dark;
+}
+
+TabStripItem:active Label {
+    color: $item-active-color;
+}
+
+TabStripItem Image {
+    color: $blue-dark;
+}
+
+TabStripItem:active Image {
+    color: $item-active-color;
+}
+
+// me
+.popup-container{
+    position: fixed;
+	z-index:99999;
+	background-color:#bb000000;
+	min-height:100;
+	width:100%;
+    height:100%;
+    padding: 30px;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.popup-box{
+    padding: 55;
+    background-color: #ffffff;
+    color: #199AAE;
+}
+
+// form
+.form-container {
+    padding-left: 20;
+    padding-right: 20;
+    padding-top: 10;
+    padding-bottom: 20; 
+}
+
+.form-segment-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 5;
+    margin-top: 10;
+    font-size: 18;
+}
+
+.form-label {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 5;
+    margin-top: 20;
+    color: #8eafe2;
+}
+
+.form-value {
+    text-transform: uppercase;
+    margin-left: 5;
+    margin-top: 5;
+    color: #9E9E9E;
+}
+
+.form-input{
+    background-color: #ffffff;
+    placeholder-color: #BDBDBD;
+    border-bottom-width: 1;
+    border-bottom-color: #BDBDBD;
+    border-bottom-style: solid;
+}
+
+.form-dropdown{
+  font-size: 20;
+  text-align: left;
+  placeholder-color: #BDBDBD;
+  padding-left: 10;
+  padding-right: 10;
+  padding-top: 5;
+  padding-bottom: 5;
+}
+
+// package
+.package-nama {
+    font-size: 18;
+    text-transform: uppercase;
+}
+
+.package-status {
+    font-size: 15;
+    text-transform: lowercase;
+    color: #FF9800;
+}
+
+.package-tgl-req {
+    font-size: 12;
+    color: #616161;
+}
+
+.package-btn {
+    background-color: #8eafe2;
+    color: #ffffff;
+    height: 50;
+    width: 90;
+    font-size: 12;
+    margin-right: 5;
+}
+
+.package-info {
+    font-size: 12;
+    color: #9E9E9E;
+}

@@ -1,0 +1,42 @@
+<Page
+    class="page"
+    loaded="onLoaded"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <GridLayout class="page-content">
+        <AbsoluteLayout width="100%" height="100%">
+            <!-- <StackLayout orientation="vertical">
+                <Button text="Buka Popup" tap="OpenPopup" />
+                <TextView hint="Input name" text="{{ popupname }}" />
+                <TextField hint="Input description" text="{{ popupdescription }}" />
+            </StackLayout>
+
+            <StackLayout class="popup-container" horizontalAlignment="center" verticalAlignment="center" visibility="{{ popup ? 'visible' : 'collapsed' }}">
+                <ScrollView orientation="vertical" height="70%">
+                    <GridLayout class="popup-box" rows="*, auto" height="100%">
+                        <StackLayout orientation="vertical" row="0">
+                            <ListView items="{{ items }}" itemTap="onItemTapFromPopup" class="list-group">
+                                <ListView.itemTemplate>
+                                    <StackLayout orientation="horizontal" class="list-group-item">
+                                        <Label text="{{ name }}" textWrap="true"></Label>
+                                    </StackLayout>
+                                </ListView.itemTemplate>
+                            </ListView>
+                        </StackLayout>
+                        <StackLayout orientation="vertical" row="1">
+                            <Button text="Close" tap="ClosePopup" />
+                        </StackLayout>
+                    </GridLayout>
+                </ScrollView>
+            </StackLayout> -->
+             <ListView items="{{ items }}" itemTap="onItemTapFromPopup" class="list-group">
+                <ListView.itemTemplate>
+                    <StackLayout orientation="horizontal" class="list-group-item">
+                        <Label text="{{ name }}" textWrap="true"></Label>
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+
+        </AbsoluteLayout>
+    </GridLayout>
+</Page>

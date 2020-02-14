@@ -1,0 +1,261 @@
+<Page
+    class="page"
+    loaded="onLoaded" 
+    navigatingTo="onNavigatingTo"  
+    xmlns:PullRefresh="@nstudio/nativescript-pulltorefresh"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Package"></Label>
+        <ActionItem tap="newData" android.systemIcon="ic_menu_add" visibility="{{ urole == 'customer' ? 'visible' : 'collapsed' }}" android.position="actionBar" />
+    </ActionBar>
+
+    <ScrollView height="100%">
+        <GridLayout rows="auto,*" height="100%">
+            <SearchBar row="0" id="searchBar" hint="Cari..." text="{{sbText}}" clear="onClear" submit="onSubmit" />
+            <StackLayout row="1">
+                <StackLayout visibility="{{ urole == 'admin' ? 'visible' : 'collapsed' }}" >
+                    <TabView androidSelectedTabHighlightColor="#8eafe2" selectedTabTextColor="#8eafe2" selectedIndex="{{ packageTabSelected }}">
+                        <TabViewItem title="Semua">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ semua_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <StackLayout orientation="vertical" class="list-group-item">
+                                                <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                            </StackLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Request">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ request_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Pickup">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ pickup_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                                <Button text="karantina" class="package-btn" dataid="{{ package_id }}" tap="onKarantina" loaded="loadButton" col="1" />
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Karantina">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ karantina_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                    <Label text="{{ 'Tagihan ' + package_tagihan_karantina }}" class="package-info" textWrap="true" />
+                                                </StackLayout>
+                                                <Button text="pengiriman" class="package-btn" dataid="{{ package_id }}" tap="onPengiriman" loaded="loadButton" col="1" />
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Pengiriman">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ pengiriman_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                    <Label text="{{ 'Tagihan ' + package_tagihan_pengiriman }}" class="package-info" textWrap="true" />
+                                                    <Label text="{{ 'No Resi ' + package_resi }}" class="package-info" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Selesai">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ selesai_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                    </TabView>
+                </StackLayout>
+                <StackLayout visibility="{{ urole == 'kurir' ? 'visible' : 'collapsed' }}" >
+                    <TabView androidSelectedTabHighlightColor="#8eafe2" selectedTabTextColor="#8eafe2" selectedIndex="{{ packageTabSelected }}">
+                        <TabViewItem title="Request">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ request_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                                <Button text="pickup" class="package-btn" dataid="{{ package_id }}" tap="onPickup" loaded="loadButton" col="1" />
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Pickup">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ pickup_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                    </TabView>
+                </StackLayout>
+                <StackLayout visibility="{{ urole == 'customer' ? 'visible' : 'collapsed' }}" >
+                    <TabView androidSelectedTabHighlightColor="#8eafe2" selectedTabTextColor="#8eafe2" selectedIndex="{{ packageTabSelected }}">
+                        <TabViewItem title="Request">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ request_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Pickup">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ pickup_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Karantina">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ karantina_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                    <Label text="{{ 'Tagihan ' + package_tagihan_karantina }}" class="package-info" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Pengiriman">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ pengiriman_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                    <Label text="{{ 'Tagihan ' + package_tagihan_pengiriman }}" class="package-info" textWrap="true" />
+                                                    <Label text="{{ 'No Resi ' + package_resi }}" class="package-info" textWrap="true" />
+                                                </StackLayout>
+                                                <Button text="selesai" class="package-btn" dataid="{{ package_id }}" tap="onSelesai" loaded="loadButton" col="1" />
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                        <TabViewItem title="Selesai">
+                            <StackLayout>
+                                <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                                    <ListView items="{{ selesai_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                        <ListView.itemTemplate>
+                                            <GridLayout columns="*,auto">
+                                                <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                    <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
+                                                    <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ package_status }}" class="package-status" textWrap="true" />
+                                                </StackLayout>
+                                            </GridLayout>
+                                        </ListView.itemTemplate>
+                                    </ListView>
+                                </PullRefresh:PullToRefresh>
+                            </StackLayout>
+                        </TabViewItem>
+                    </TabView>
+                </StackLayout>
+            </StackLayout>
+        </GridLayout>
+    </ScrollView>
+</Page>

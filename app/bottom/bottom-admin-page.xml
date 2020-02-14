@@ -1,0 +1,46 @@
+<Page loaded="loaded" actionBarHidden="true" backgroundSpanUnderStatusBar="false" xmlns="http://www.nativescript.org/tns.xsd">
+    <BottomNavigation selectedIndex="{{ tabSelected }}">
+        <TabStrip>
+            <TabStripItem>
+                <Label text="Board" />
+                <Image src="font://&#xf1b2;" class="fa t-36" />
+            </TabStripItem>
+            <TabStripItem>
+                <Label text="Package" />
+                <Image src="font://&#xf1c0;" class="fa t-36" />
+            </TabStripItem>
+            <TabStripItem>
+                <Label text="Customer" />
+                <Image src="font://&#xf118;" class="fa t-36" />
+            </TabStripItem>
+            <TabStripItem>
+                <Label text="Kurir" />
+                <Image src="font://&#xf2c1;" class="fa t-36" />
+            </TabStripItem>
+            <TabStripItem>
+                <Label text="Account" />
+                <Image src="font://&#xf2bd;" class="fa t-36" />
+            </TabStripItem>
+        </TabStrip>
+
+        <TabContentItem>
+            <Frame defaultPage="board/board-page" />
+        </TabContentItem>
+
+        <TabContentItem> 
+            <Frame defaultPage="zpack/zpack-page" />
+        </TabContentItem>
+
+        <TabContentItem>
+            <Frame defaultPage="account/account-page" />
+        </TabContentItem>
+
+        <TabContentItem>
+            <Frame defaultPage="account/account-page" />
+        </TabContentItem>
+
+        <TabContentItem>
+            <Frame defaultPage="account/account-page" />
+        </TabContentItem>
+    </BottomNavigation>
+</Page>

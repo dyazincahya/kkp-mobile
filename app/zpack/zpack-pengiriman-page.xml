@@ -1,0 +1,25 @@
+<Page
+    class="page"
+    loaded="onLoaded" 
+    navigatingTo="onNavigatingTo"  
+    xmlns:dd="nativescript-drop-down"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Data Pengiriman"></Label>
+        <ActionItem tap="saveData" android.systemIcon="ic_menu_save" android.position="actionBar" />
+    </ActionBar>
+
+    <ScrollView height="100%">
+        <GridLayout rows="auto,auto,auto,auto,auto" height="100%" class="form-container">
+            <StackLayout row="0">
+                <Label text="Tagihan Pengiriman" class="form-label" />
+                <TextField text="{{ tagihan }}" hint="Tagihan Pengiriman" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+            </StackLayout>
+            <StackLayout row="1">
+                <Label text="No Resi Pengiriman" class="form-label" />
+                <TextField text="{{ no_resi }}" hint="No Resi Pengiriman" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+            </StackLayout>
+        </GridLayout>
+    </ScrollView>
+</Page>

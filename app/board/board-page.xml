@@ -1,0 +1,54 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Board"></Label>
+        <ActionItem tap="onRefresh" text="Refresh" android.position="popup" />
+    </ActionBar>
+
+    <StackLayout orientation="vertical" horizontalAlignment="center">
+        <GridLayout class="page-content" columns="5,*,5,*,5,*,5" rows="auto,auto" marginTop="10">
+            <Label text="CUSTOMER" row="0" col="1" padding="5" />
+            <StackLayout orientation="vertical" row="1" col="1" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="20">
+                <Label text="{{ cust_non_active }}" fontSize="20"/>
+                <Label text="NON ACTIVE" fontSize="11"/>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="1" col="3" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="20">
+                <Label text="{{ cust_active }}" fontSize="20"/>
+                <Label text="ACTIVE" fontSize="11"/>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="1" col="5" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="20">
+                <Label text="{{ cust_pending }}" fontSize="20"/>
+                <Label text="PENDING" fontSize="11"/>
+            </StackLayout>
+        </GridLayout>
+
+        <ScrollView orientation="horizontal" width="100%">
+            <GridLayout class="page-content" columns="5,*,5,*,5,*,5,*,5,*,5" rows="auto,auto" marginTop="10">
+                <Label text="PACKAGE" row="0" col="1" padding="5" />
+                <StackLayout orientation="vertical" row="1" col="1" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                    <Label text="{{ pack_request }}" fontSize="20"/>
+                    <Label text="REQUEST" fontSize="11"/>
+                </StackLayout>
+                <StackLayout orientation="vertical" row="1" col="3" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                    <Label text="{{ pack_pickup }}" fontSize="20"/>
+                    <Label text="PICKUP" fontSize="11"/>
+                </StackLayout>
+                <StackLayout orientation="vertical" row="1" col="5" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                    <Label text="{{ pack_karantina }}" fontSize="20"/>
+                    <Label text="KARANTINA" fontSize="11"/>
+                </StackLayout>
+                <StackLayout orientation="vertical" row="1" col="7" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                    <Label text="{{ pack_pengiriman }}" fontSize="20"/>
+                    <Label text="PENGIRIMAN" fontSize="11"/>
+                </StackLayout>
+                <StackLayout orientation="vertical" row="1" col="9" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                    <Label text="{{ pack_selesai }}" fontSize="20"/>
+                    <Label text="SELESAI" fontSize="11"/>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</Page>
