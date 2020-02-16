@@ -1,4 +1,4 @@
-<Page loaded="loaded" actionBarHidden="true" backgroundSpanUnderStatusBar="false" xmlns="http://www.nativescript.org/tns.xsd">
+<Page loaded="onLoaded" actionBarHidden="true" backgroundSpanUnderStatusBar="false" xmlns="http://www.nativescript.org/tns.xsd">
     <BottomNavigation selectedIndex="{{ tabSelected }}">
         <TabStrip>
             <TabStripItem>
@@ -8,6 +8,10 @@
             <TabStripItem>
                 <Label text="Account" />
                 <Image src="font://&#xf2bd;" class="fa t-36" />
+            </TabStripItem>
+            <TabStripItem tap="logout">
+                <Label text="Logout" color="red" />
+                <Image src="font://&#xf011;" class="fa t-36" color="red" />
             </TabStripItem>
         </TabStrip>
 

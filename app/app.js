@@ -21,7 +21,7 @@ global.gConfig = {
 			cancelable: false,
 		},
 	}
-}; 
+};
 global.gUserdata = {};
 global.gAvaliableCity = ["jakarta timur", "jakarta barat", "jakarta selatan", "jakarta pusat", "jakarta utara", "tanggerang", "depok", "bekasi"];
 global.gDestinationCity = ["sulawesi selatan", "bali", "jawa tengah", "jawa timur", "kalimantan timur", "riau"]; 

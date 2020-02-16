@@ -1,14 +1,83 @@
 <Page
     class="page"
+    loaded="onLoaded" 
     navigatingTo="onNavigatingTo"  
+    xmlns:dd="nativescript-drop-down"
+    xmlns:datetime="nativescript-datetimepicker"
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
         <Label class="action-bar-title" text="Account"></Label>
+        <ActionItem tap="saveData" android.systemIcon="ic_menu_save" android.position="actionBar" />
     </ActionBar>
 
-    <GridLayout class="page-content">
-        <Label class="page-icon fa" text="&#xf002;"></Label>
-        <Label class="page-placeholder" text="<!-- Search page content goes here -->"></Label>
-    </GridLayout>
+        <ScrollView height="100%"> 
+            <GridLayout rows="*,*" class="form-container">
+                <StackLayout row="0">
+                    <StackLayout visibility="{{ (user_role == 'admin') ? 'visible' : 'collapsed' }}">
+                        <StackLayout>
+                            <Label text="Nama Legnkap" class="form-label" />
+                            <TextField text="{{ user_nama }}" hint="Nama" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="Email" class="form-label" />
+                            <Label text="{{ user_email }}" class="form-value" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout visibility="{{ (user_role == 'kurir') ? 'visible' : 'collapsed' }}">
+                        <StackLayout>
+                            <Label text="Nama Legnkap" class="form-label" />
+                            <TextField text="{{ user_nama }}" hint="Nama" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="Email" class="form-label" />
+                            <Label text="{{ user_email }}" class="form-value" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="No Telp" class="form-label" />
+                            <TextField text="{{ user_no_telp }}" hint="Nama" class="form-input" keyboardType="number" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout visibility="{{ (user_role == 'customer') ? 'visible' : 'collapsed' }}">
+                        <StackLayout>
+                            <Label text="Nama Lengkap" class="form-label" />
+                            <TextField text="{{ user_nama }}" hint="Nama" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="Email" class="form-label" />
+                            <Label text="{{ user_email }}" class="form-value" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="No Telp" class="form-label" />
+                            <TextField text="{{ user_no_telp }}" hint="Nama" class="form-input" keyboardType="number" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="Tanggal Lahir" class="form-label" />
+                            <datetime:DatePickerField class="input" hint="Tanggal Lahir" dateFormat="yyyy-MM-dd" date="{{ user_tgl_lahir }}" text="{{ user_tgl_lahir }}" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="Tanggal Lahir" class="form-label" />
+                            <dd:DropDown items="{{ items_kota_tinggal }}" class="dropdown" selectedIndex="{{ kotaAsalSelectedIndex }}" hint="~ Pilih Kota Tinggal ~" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label text="Alamat Lengkap" class="form-label" />
+                            <TextView text="{{ user_alamat }}" hint="Alamat Lengkap" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout row="1">
+                    <Label marginTop="20" color="red" text="*Isi bagian password jika ingin mengubah password!" />
+                    <StackLayout>
+                        <Label text="Password" class="form-label" />
+                        <TextField text="{{ user_password }}" hint="Password" class="form-input" autocorrect="false" secure="true" autocapitalizationType="none" returnKeyType="next" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label text="Confirm Password" class="form-label" />
+                        <TextField text="{{ user_password_confirm }}" hint="Confirm Password" class="form-input" autocorrect="false" secure="true" autocapitalizationType="none" returnKeyType="next" />
+                    </StackLayout>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
 </Page>

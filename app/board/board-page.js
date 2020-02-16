@@ -56,7 +56,11 @@ exports.onRefresh = function (){
     timerModule.setTimeout(function () {
         GetDataBoard();
     }, gConfig.timeloader);
-}
+};
+
+exports.report = function (){
+    alert("comingsoon!");
+};
 
 /*exports.pullRefresh = function(args) {
     var a = args.object;

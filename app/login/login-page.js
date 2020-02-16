@@ -11,6 +11,11 @@ var GetModel = new xViewModel([]);
 
 var context, framePage; 
 
+function reset_form(){
+    context.set("email", "");
+    context.set("password", "");
+}
+
 exports.onLoaded = function(args) {
     framePage = args.object.frame;
 };
@@ -19,8 +24,9 @@ exports.onNavigatingTo = function(args) {
     const page = args.object; 
 
     context = GetModel; 
+    gUserdata = {};
 
-    context.set("email", "@example.com");
+    context.set("email", "a@example.com");
     context.set("password", "123");
 
     page.bindingContext = context;
@@ -37,7 +43,7 @@ exports.login = function(args) {
 		email: data.email,
 		password: data.password
 	}; 
-
+    gUserdata = {};
 	xLoading.show(gConfig.loadingOption);
 	GetModel.signin(params).then(function (result){
         if(result.success == true){
@@ -45,6 +51,7 @@ exports.login = function(args) {
             if(result.data.user_role == "admin"){
                 framePage.navigate({
     		        moduleName: "bottom/bottom-admin-page",
+                    clearHistory: true,
     		        animated: true,
     		        transition: {
     		            name: "fade"
@@ -53,6 +60,7 @@ exports.login = function(args) {
             } else {
                 framePage.navigate({
                     moduleName: "bottom/bottom-page",
+                    clearHistory: true,
                     animated: true,
                     transition: {
                         name: "fade"

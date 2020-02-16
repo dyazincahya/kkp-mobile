@@ -25,30 +25,36 @@
             </StackLayout>
         </GridLayout>
 
-        <ScrollView orientation="horizontal" width="100%">
-            <GridLayout class="page-content" columns="5,*,5,*,5,*,5,*,5,*,5" rows="auto,auto" marginTop="10">
-                <Label text="PACKAGE" row="0" col="1" padding="5" />
-                <StackLayout orientation="vertical" row="1" col="1" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
-                    <Label text="{{ pack_request }}" fontSize="20"/>
-                    <Label text="REQUEST" fontSize="11"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" row="1" col="3" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
-                    <Label text="{{ pack_pickup }}" fontSize="20"/>
-                    <Label text="PICKUP" fontSize="11"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" row="1" col="5" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
-                    <Label text="{{ pack_karantina }}" fontSize="20"/>
-                    <Label text="KARANTINA" fontSize="11"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" row="1" col="7" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
-                    <Label text="{{ pack_pengiriman }}" fontSize="20"/>
-                    <Label text="PENGIRIMAN" fontSize="11"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" row="1" col="9" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
-                    <Label text="{{ pack_selesai }}" fontSize="20"/>
-                    <Label text="SELESAI" fontSize="11"/>
-                </StackLayout>
-            </GridLayout>
-        </ScrollView>
+        <GridLayout class="page-content" columns="5,*,5,*,5,*,5" rows="auto,auto" marginTop="10">
+            <Label text="PACKAGE" row="0" col="1" padding="5" />
+            <StackLayout orientation="vertical" row="1" col="1" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                <Label text="{{ pack_request }}" fontSize="20"/>
+                <Label text="REQUEST" fontSize="11"/>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="1" col="3" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                <Label text="{{ pack_pickup }}" fontSize="20"/>
+                <Label text="PICKUP" fontSize="11"/>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="1" col="5" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                <Label text="{{ pack_karantina }}" fontSize="20"/>
+                <Label text="KARANTINA" fontSize="11"/>
+            </StackLayout>
+        </GridLayout>
+        <GridLayout class="page-content" columns="5,*,5,*,5" rows="auto,auto" marginTop="5">
+            <StackLayout orientation="vertical" row="1" col="1" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                <Label text="{{ pack_pengiriman }}" fontSize="20"/>
+                <Label text="PENGIRIMAN" fontSize="11"/>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="1" col="3" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                <Label text="{{ pack_selesai }}" fontSize="20"/>
+                <Label text="SELESAI" fontSize="11"/>
+            </StackLayout>
+        </GridLayout>
+        <GridLayout class="page-content" columns="5,*,5" rows="auto,auto" marginTop="10">
+            <Label text="REPORT" row="0" col="1" padding="5" />
+            <StackLayout orientation="vertical" row="1" col="1" horizontalAlignment="center" backgroundColor="#f6ef87" color="#4b4b4b" width="100%" padding="10">
+                <Button text="Kirim Laporan Via Email" class="board-btn" tap="report" />
+            </StackLayout>
+        </GridLayout>
     </StackLayout>
 </Page>

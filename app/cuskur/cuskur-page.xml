@@ -1,0 +1,24 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Customer &amp; Kurir"></Label>
+    </ActionBar>
+
+    <GridLayout class="page-content">
+        <TabView androidSelectedTabHighlightColor="#8eafe2" selectedTabTextColor="#8eafe2" selectedIndex="{{ cuskurTabSelected }}">
+            <TabViewItem title="Customer">
+                <StackLayout>
+                    <Label textWrap="true" text="This is tab customer" />
+                </StackLayout>
+            </TabViewItem>
+            <TabViewItem title="Kurir">
+                <StackLayout>
+                    <Label textWrap="true" text="This is tab kurir" />
+                </StackLayout>
+            </TabViewItem>
+        </TabView>
+    </GridLayout>
+</Page>

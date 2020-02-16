@@ -1,4 +1,4 @@
-<Page loaded="loaded" actionBarHidden="true" backgroundSpanUnderStatusBar="false" xmlns="http://www.nativescript.org/tns.xsd">
+<Page loaded="onLoaded" actionBarHidden="true" backgroundSpanUnderStatusBar="false" xmlns="http://www.nativescript.org/tns.xsd">
     <BottomNavigation selectedIndex="{{ tabSelected }}">
         <TabStrip>
             <TabStripItem>
@@ -10,16 +10,16 @@
                 <Image src="font://&#xf1c0;" class="fa t-36" />
             </TabStripItem>
             <TabStripItem>
-                <Label text="Customer" />
-                <Image src="font://&#xf118;" class="fa t-36" />
-            </TabStripItem>
-            <TabStripItem>
-                <Label text="Kurir" />
-                <Image src="font://&#xf2c1;" class="fa t-36" />
+                <Label text="CUS &amp; KUR" />
+                <Image src="font://&#xf0c0;" class="fa t-36" />
             </TabStripItem>
             <TabStripItem>
                 <Label text="Account" />
                 <Image src="font://&#xf2bd;" class="fa t-36" />
+            </TabStripItem>
+            <TabStripItem tap="logout">
+                <Label text="Logout" color="red" />
+                <Image src="font://&#xf011;" class="fa t-36" color="red" />
             </TabStripItem>
         </TabStrip>
 
@@ -32,11 +32,7 @@
         </TabContentItem>
 
         <TabContentItem>
-            <Frame defaultPage="account/account-page" />
-        </TabContentItem>
-
-        <TabContentItem>
-            <Frame defaultPage="account/account-page" />
+            <Frame defaultPage="cuskur/cuskur-page" />
         </TabContentItem>
 
         <TabContentItem>

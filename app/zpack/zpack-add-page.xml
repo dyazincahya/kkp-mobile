@@ -11,7 +11,7 @@
     </ActionBar>
 
     <ScrollView height="100%">
-        <GridLayout rows="auto,auto,auto,auto,auto" height="100%" class="form-container">
+        <GridLayout rows="auto,auto,auto,auto,auto" class="form-container">
             <StackLayout row="0">
                 <Label text="Isi Paket" class="form-label" />
                 <TextField text="{{ nama }}" hint="Nama" class="form-input" autocorrect="false" autocapitalizationType="none" returnKeyType="next" />

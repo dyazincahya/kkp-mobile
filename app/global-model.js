@@ -43,6 +43,19 @@ function xViewModel(items) {
         });
     };
 
+    viewModel.account_update = function (data={}) {
+        return httpModule.request({
+            url: gUrl + "signin/account_update",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify(data)
+        }).then(function (response) {
+            return response.content.toJSON();
+        }, function (e) {
+            console.log("Error occurred " + e);
+        });
+    };
+
     return viewModel;
 }
 
