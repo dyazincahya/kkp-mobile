@@ -5,7 +5,7 @@ const xLoading = new LoadingIndicatorModule();
 const xViewModel = require("../global-model");
 var GetModel = new xViewModel([]);
 
-var context
+var context, framePage; 
 
 function GetDataBoard(){
 	GetModel.board({}).then(function (result){
@@ -26,7 +26,11 @@ function GetDataBoard(){
     });
 }
 
-
+exports.onLoaded = function(args) {
+    const page = args.object;
+   
+    framePage = page.frame;
+};
 
 exports.onNavigatingTo = function (args) {
     const component = args.object;
@@ -59,15 +63,11 @@ exports.onRefresh = function (){
 };
 
 exports.report = function (){
-    alert("comingsoon!");
+    framePage.navigate({
+        moduleName: "mail/report-page",
+        animated: true,
+        transition: {
+            name: "fade"
+        }
+    });
 };
-
-/*exports.pullRefresh = function(args) {
-    var a = args.object;
-
-    xLoading.show(gConfig.loadingOption);
-    GetDataBoard()
-    setTimeout(() => {
-        a.refreshing = false;
-    }, 1000);
-};*/

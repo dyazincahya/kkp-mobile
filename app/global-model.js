@@ -17,6 +17,19 @@ function xViewModel(items) {
         });
     };
 
+    viewModel.forgot_password = function (data={}) { 
+        return httpModule.request({
+            url: gUrl + "signin/forgot_password",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify(data)
+        }).then(function (response) {
+            return response.content.toJSON();
+        }, function (e) {
+            console.log("Error occurred " + e);
+        });
+    };
+
     viewModel.signup = function (data={}) {
         return httpModule.request({
             url: gUrl + "signup",
@@ -46,6 +59,19 @@ function xViewModel(items) {
     viewModel.account_update = function (data={}) {
         return httpModule.request({
             url: gUrl + "signin/account_update",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify(data)
+        }).then(function (response) {
+            return response.content.toJSON();
+        }, function (e) {
+            console.log("Error occurred " + e);
+        });
+    };
+
+    viewModel.send_report = function (data={}) {
+        return httpModule.request({
+            url: gUrl + "email/send_report",
             method: "POST",
             headers: { "Content-Type": "application/json" },
             content: JSON.stringify(data)

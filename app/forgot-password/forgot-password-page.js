@@ -30,24 +30,28 @@ exports.submit = function() {
 		return;
 	} 
 
+    if(data.email == ""){ 
+        toastModule.makeText("Email wajib diisi").show();
+        return;
+    } 
+
 	let params = {
 		email: data.email
-	}; 
+	};
 
 	xLoading.show(gConfig.loadingOption);
-	GetModel.signin(params).then(function (result){
+	GetModel.forgot_password(params).then(function (result){
         if(result.success == true){
         	gUserdata = result.data;
             framePage.navigate({
-		        moduleName: "bottom/bottom-page",
+		        moduleName: "login/login-page",
 		        animated: true,
 		        transition: {
 		            name: "fade"
 		        }
 		    });
-        } else {
-            alert(result.message);
         }
+        alert(result.message);
         xLoading.hide();
     });
 } 
