@@ -54,7 +54,6 @@ function getListPickup(keyword=null){
 
 function getListKarantina(keyword=null){
     GetModel.list({"keyword" : keyword, "status" : "KARANTINA"}).then(function (result){
-        console.log(result);
         if(result.success == true){
             if(result.total > 0){
                 context.set("karantina_items", result.data);

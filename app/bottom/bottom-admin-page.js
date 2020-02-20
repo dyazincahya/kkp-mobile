@@ -23,7 +23,7 @@ exports.onLoaded = function(args) {
     }
 
     page.bindingContext = context;
-};
+}; 
 
 exports.logout = function(){
     confirm({
