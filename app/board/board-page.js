@@ -50,7 +50,7 @@ exports.onNavigatingTo = function (args) {
         GetDataBoard();
     }, gConfig.timeloader);
 
-    // context.set("user_nama", gUserdata.user_nama)
+    // context.set("user_nama", gUserdata)
 
     component.bindingContext = context; 
 };

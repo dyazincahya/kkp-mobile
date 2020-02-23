@@ -24,6 +24,8 @@
             <Button text="Log In" class="btn btn-primary m-t-20" tap="login" />
             <Label text="Forgot your password? Reset Now Here" class="login-label" tap="forgotpassword" />
             <Label text="Sign up for New Customer" class="login-label m-t-10" tap="signup" />
+
+            <Label text="PD MASTERINDO LAJU ABADI" class="login-label" fontWeight="bold" marginTop="25" />
         </StackLayout>
     </FlexboxLayout>
 </Page>

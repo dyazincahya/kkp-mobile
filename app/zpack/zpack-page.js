@@ -8,7 +8,7 @@ const GetModel = new xViewModel([]);
 var context, framePage, ndata; 
 
 function GetListSemua(keyword=null){
-	GetModel.list({"keyword" : keyword}).then(function (result){
+	GetModel.list({"keyword" : keyword, "role": gUserdata.user_role, "sess_id" : gUserdata.user_id}).then(function (result){
         if(result.success == true){
         	if(result.total > 0){
                 context.set("semua_items", result.data);
@@ -23,8 +23,9 @@ function GetListSemua(keyword=null){
 }
 
 function getListRequest(keyword=null){
-    GetModel.list({"keyword" : keyword, "status" : "REQUEST"}).then(function (result){
+    GetModel.list({"keyword" : keyword, "role": gUserdata.user_role, "sess_id" : gUserdata.user_id, "status" : "REQUEST"}).then(function (result){
         if(result.success == true){
+            console.log(result);
             if(result.total > 0){
                 context.set("request_items", result.data);
             } else {
@@ -38,7 +39,7 @@ function getListRequest(keyword=null){
 }
 
 function getListPickup(keyword=null){
-    GetModel.list({"keyword" : keyword, "status" : "PICKUP"}).then(function (result){
+    GetModel.list({"keyword" : keyword, "role": gUserdata.user_role, "sess_id" : gUserdata.user_id, "status" : "PICKUP"}).then(function (result){
         if(result.success == true){
             if(result.total > 0){
                 context.set("pickup_items", result.data);
@@ -53,7 +54,7 @@ function getListPickup(keyword=null){
 }
 
 function getListKarantina(keyword=null){
-    GetModel.list({"keyword" : keyword, "status" : "KARANTINA"}).then(function (result){
+    GetModel.list({"keyword" : keyword, "role": gUserdata.user_role, "sess_id" : gUserdata.user_id, "status" : "KARANTINA"}).then(function (result){
         if(result.success == true){
             if(result.total > 0){
                 context.set("karantina_items", result.data);
@@ -68,7 +69,7 @@ function getListKarantina(keyword=null){
 }
 
 function getListPengiriman(keyword=null){
-    GetModel.list({"keyword" : keyword, "status" : "PENGIRIMAN"}).then(function (result){
+    GetModel.list({"keyword" : keyword, "role": gUserdata.user_role, "sess_id" : gUserdata.user_id, "status" : "PENGIRIMAN"}).then(function (result){
         if(result.success == true){
             if(result.total > 0){
                 context.set("pengiriman_items", result.data);
@@ -83,7 +84,7 @@ function getListPengiriman(keyword=null){
 }
 
 function getListSelesai(keyword=null){
-    GetModel.list({"keyword" : keyword, "status" : "SELESAI"}).then(function (result){
+    GetModel.list({"keyword" : keyword, "role": gUserdata.user_role, "sess_id" : gUserdata.user_id, "status" : "SELESAI"}).then(function (result){
         if(result.success == true){
             if(result.total > 0){
                 context.set("selesai_items", result.data);
@@ -294,7 +295,7 @@ exports.onSelesai = function(args){
     let dataid = args.object.get("dataid");
     confirm({
         title: "SELESAI",
-        message: "Apa barang ini sudah kamu terima?",
+        message: "Apa barang ini sudah diterima?",
         okButtonText: "Ya",
         cancelButtonText: "Batal"
     }).then((result) => {

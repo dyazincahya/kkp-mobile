@@ -26,7 +26,7 @@ exports.onNavigatingTo = function(args) {
     context = GetModel; 
     gUserdata = {};
 
-    context.set("email", "a@example.com");
+    context.set("email", "k@example.com");
     context.set("password", "123");
 
     page.bindingContext = context;
@@ -47,6 +47,7 @@ exports.login = function(args) {
 	xLoading.show(gConfig.loadingOption);
 	GetModel.signin(params).then(function (result){
         if(result.success == true){
+            console.log(result.data);
         	gUserdata = result.data;
             if(result.data.user_role == "admin"){
                 framePage.navigate({

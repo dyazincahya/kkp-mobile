@@ -113,6 +113,9 @@
                                                 <StackLayout orientation="vertical" class="list-group-item" col="0">
                                                     <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
                                                     <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ 'Biaya Karantina : ' + package_tagihan_karantina }}" class="package-info" textWrap="true" />
+                                                    <Label text="{{ 'Biaya Pengiriman : ' + package_tagihan_pengiriman }}" class="package-info" textWrap="true" />
+                                                    <Label text="{{ 'Total Biaya : ' + package_tagihan_total }}" class="package-info" textWrap="true" />
                                                     <Label text="{{ package_status }}" class="package-status" textWrap="true" />
                                                 </StackLayout>
                                             </GridLayout>
@@ -245,6 +248,9 @@
                                                 <StackLayout orientation="vertical" class="list-group-item" col="0">
                                                     <Label text="{{ 'REQ-DATE # ' + package_tgl_request }}" class="package-tgl-req" textWrap="true" />
                                                     <Label text="{{ package_nama }}" class="package-nama" textWrap="true" />
+                                                    <Label text="{{ 'Biaya Karantina : ' + package_tagihan_karantina }}" class="package-info" textWrap="true" />
+                                                    <Label text="{{ 'Biaya Pengiriman : ' + package_tagihan_pengiriman }}" class="package-info" textWrap="true" />
+                                                    <Label text="{{ 'Total Biaya : ' + package_tagihan_total }}" class="package-info" textWrap="true" />
                                                     <Label text="{{ package_status }}" class="package-status" textWrap="true" />
                                                 </StackLayout>
                                             </GridLayout>

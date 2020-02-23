@@ -7,6 +7,11 @@ const GetModel = new xViewModel([]);
 
 var context, framePage, ndata; 
 
+function reset_form(){
+    context.set("tagihan", "");
+    context.set("no_resi", "");
+}
+
 exports.onLoaded = function(args) {
     const page = args.object;
    
@@ -17,6 +22,9 @@ exports.onNavigatingTo = function(args) {
     const page = args.object;
     context = GetModel;
     ndata = page.navigationContext;
+
+    reset_form();
+    
     page.bindingContext = context;
 };
 

@@ -1,4 +1,5 @@
 const timerModule = require("tns-core-modules/timer");
+const toastModule = require("nativescript-toast");
 const LoadingIndicatorModule = require('@nstudio/nativescript-loading-indicator').LoadingIndicator;
 const xLoading = new LoadingIndicatorModule();
 
@@ -35,16 +36,24 @@ exports.onNavigatingTo = function(args) {
 
 exports.updateData = function(){
     let data = context;
+
+    if(data.nama == undefined && data.keterangan == undefined  && data.alamat == undefined && data.tujuanSelectedIndex == undefined){
+        toastModule.makeText("Semua inputan wajib diisi").show();
+        return;
+    } 
+
+    if(data.nama == "" && data.keterangan == ""  && data.alamat == "" && data.tujuanSelectedIndex == ""){
+        toastModule.makeText("Semua inputan wajib diisi").show();
+        return;
+    } 
+
     let params = {
         nama : data.nama,
         keterangan : data.keterangan,
-        tujuan : gDestinationCity[context.tujuanSelectedIndex],
-        alamat : context.alamat,
+        tujuan : gDestinationCity[data.tujuanSelectedIndex],
+        alamat : data.alamat,
         customer_id : gUserdata.user_id,
     };
-
-    console.log(params);
-    return;
 
     xLoading.show(gConfig.loadingOption);
     GetModel.save(params).then(function (result){

@@ -1,24 +1,67 @@
 <Page
     class="page"
+    loaded="onLoaded" 
     navigatingTo="onNavigatingTo"  
+    xmlns:PullRefresh="@nstudio/nativescript-pulltorefresh"
+    xmlns:FAB="@nstudio/nativescript-floatingactionbutton"
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
         <Label class="action-bar-title" text="Customer &amp; Kurir"></Label>
     </ActionBar>
 
-    <GridLayout class="page-content">
-        <TabView androidSelectedTabHighlightColor="#8eafe2" selectedTabTextColor="#8eafe2" selectedIndex="{{ cuskurTabSelected }}">
-            <TabViewItem title="Customer">
-                <StackLayout>
-                    <Label textWrap="true" text="This is tab customer" />
-                </StackLayout>
-            </TabViewItem>
-            <TabViewItem title="Kurir">
-                <StackLayout>
-                    <Label textWrap="true" text="This is tab kurir" />
-                </StackLayout>
-            </TabViewItem>
-        </TabView>
+    <GridLayout class="page-content" rows="auto,*" >
+        <SearchBar row="0" id="searchBar" hint="Cari..." text="{{sbText}}" clear="onClear" submit="onSubmit" />
+        <StackLayout row="1">
+            <TabView androidSelectedTabHighlightColor="#8eafe2" selectedTabTextColor="#8eafe2" selectedIndex="{{ cuskurTabSelected }}">
+                <TabViewItem title="Customer">
+                    <StackLayout>
+                        <PullRefresh:PullToRefresh refresh="onPullResfresh">
+                            <ListView items="{{ customer_items }}" itemTap="onItemTap" height="100%" class="list-group">
+                                <ListView.itemTemplate>
+                                    <GridLayout columns="*,auto">
+                                        <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                            <Label text="{{ customer_email }}" class="package-tgl-req" textWrap="true" />
+                                            <Label text="{{ customer_nama }}" class="package-nama" textWrap="true" />
+                                            <Label text="{{ customer_status }}" class="package-status" textWrap="true" />
+                                        </StackLayout>
+                                        <StackLayout col="1" marginTop="5">
+                                            <Button text="Non Aktifkan" class="package-btn" backgroundColor="#f44336" dataid="{{ customer_id }}" tap="onInactive" loaded="loadButton"  visibility="{{ customer_status == 'ACTIVE' ? 'visible' : 'collapsed' }}" />
+                                            <Button text="Aktifkan" class="package-btn" backgroundColor="#2196F3" dataid="{{ customer_id }}" tap="onActive" loaded="loadButton"  visibility="{{ customer_status == 'NON ACTIVE' ? 'visible' : 'collapsed' }}" />
+                                            <Button text="Approve" class="package-btn" backgroundColor="#4CAF50" dataid="{{ customer_id }}" tap="onApprove" loaded="loadButton"  visibility="{{ customer_status == 'PENDING' ? 'visible' : 'collapsed' }}" />
+                                        </StackLayout>
+                                    </GridLayout>
+                                </ListView.itemTemplate>
+                            </ListView>
+                        </PullRefresh:PullToRefresh>
+                    </StackLayout>
+                </TabViewItem>
+                <TabViewItem title="Kurir">
+                    <StackLayout>
+                        <GridLayout rows="*,auto">
+                            <PullRefresh:PullToRefresh refresh="onPullResfresh" row="0">
+                                <ListView items="{{ kurir_items }}" itemTap="onItemTapKurir" height="100%" class="list-group">
+                                    <ListView.itemTemplate>
+                                        <GridLayout columns="*,auto">
+                                            <StackLayout orientation="vertical" class="list-group-item" col="0">
+                                                <Label text="{{ kurir_email }}" class="package-tgl-req" textWrap="true" />
+                                                <Label text="{{ kurir_nama }}" class="package-nama" textWrap="true" />
+                                                <Label text="{{ kurir_no_telp }}" class="package-status" textWrap="true" />
+                                            </StackLayout>
+                                            <Button text="Hapus" class="package-btn" backgroundColor="#f44336" dataid="{{ kurir_id }}" col="1" tap="onDelete" loaded="loadButton" />
+                                        </GridLayout>
+                                    </ListView.itemTemplate>
+                                </ListView>
+                            </PullRefresh:PullToRefresh>
+                            <FAB:fab tap="addKurir"
+                                row="1"
+                                text="+"
+                                rippleColor="#f1f1f1"
+                                class="fab-button" />
+                        </GridLayout>
+                    </StackLayout>
+                </TabViewItem>
+            </TabView>
+        </StackLayout>
     </GridLayout>
 </Page>

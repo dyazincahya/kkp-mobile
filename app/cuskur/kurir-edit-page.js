@@ -3,71 +3,68 @@ const toastModule = require("nativescript-toast");
 const LoadingIndicatorModule = require('@nstudio/nativescript-loading-indicator').LoadingIndicator;
 const xLoading = new LoadingIndicatorModule();
 
-const xViewModel = require("./zpack-model");
+const xViewModel = require("./cuskur-model");
 const GetModel = new xViewModel([]);
 
-var context, framePage; 
-
-function reset_form(){
-    context.set("nama", "");
-    context.set("keterangan", "");
-    context.set("alamat", "");
-}
+var context, framePage, ndata; 
 
 exports.onLoaded = function(args) {
     const page = args.object;
-   
     framePage = page.frame;
 };
 
 exports.onNavigatingTo = function(args) {
     const page = args.object;
+    ndata = page.navigationContext;
     context = GetModel;
 
-    context.set("items_kota_tujuan", gDestinationCity);
- 
+    xLoading.show(gConfig.loadingOption);
     timerModule.setTimeout(function () {
-        reset_form();
+        context.set("no_ktp", ndata.data.kurir_no_ktp); 
+        context.set("nama", ndata.data.kurir_nama); 
+        context.set("no_telp", ndata.data.kurir_no_telp); 
+        context.set("email", ndata.data.kurir_email);
+        xLoading.hide();
     }, gConfig.timeloader);
 
     page.bindingContext = context;
 };
 
-exports.saveData = function(){
+exports.updateData = function(){
     let data = context;
 
-    if(data.nama == undefined && data.keterangan == undefined  && data.alamat == undefined && data.tujuanSelectedIndex == undefined){
+    if(data.no_ktp == undefined && data.nama == undefined  && data.no_telp == undefined && data.email == undefined && data.password == undefined){
         toastModule.makeText("Semua inputan wajib diisi").show();
         return;
     } 
 
-    if(data.nama == "" && data.keterangan == ""  && data.alamat == "" && data.tujuanSelectedIndex == ""){
+    if(data.no_ktp == "" && data.nama == ""  && data.no_telp == "" && data.email == "" && data.password == ""){
         toastModule.makeText("Semua inputan wajib diisi").show();
         return;
     } 
 
     let params = {
+        id : ndata.data.kurir_id,
+        no_ktp : data.no_ktp,
         nama : data.nama,
-        keterangan : data.keterangan,
-        tujuan : gDestinationCity[data.tujuanSelectedIndex],
-        alamat : data.alamat,
-        customer_id : gUserdata.user_id,
+        no_telp : data.no_telp,
+        email : data.email,
+        password : data.password
     };
 
     xLoading.show(gConfig.loadingOption);
-    GetModel.save(params).then(function (result){
+    GetModel.kurir_update(params).then(function (result){
         if(result.success == true){
             framePage.navigate({
-                moduleName: "zpack/zpack-page",
+                moduleName: "cuskur/cuskur-page",
+                context: { tabSelected: 1 },
                 animated: true,
                 transition: {
                     name: "fade"
                 }
             });
-            alert(result.message);
-        } else {
-            alert(result.message);
         }
+        alert(result.message);
         xLoading.hide();
     });
-}
+};

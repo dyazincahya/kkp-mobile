@@ -1,5 +1,4 @@
 const toastModule = require("nativescript-toast");
-
 const LoadingIndicatorModule = require('@nstudio/nativescript-loading-indicator').LoadingIndicator;
 const xLoading = new LoadingIndicatorModule();
 
