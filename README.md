@@ -3,7 +3,7 @@ Aplikasi KKP Mobile (frontend) | S7H UNINDRA 2019
 
 
 ### AKUN TESTING
-Download aplikasinya disini => [kikan.apk](https://github.com/dyazincahya/kkp-mobile/raw/master/kikan.apk)
+Download aplikasinya disini => [PLAYSTORE GOOGLE](https://play.google.com/store/apps/details?id=com.kang.cahya.kikan)
 ##### ADMIN
 - username : a@example.com
 - password : 123
