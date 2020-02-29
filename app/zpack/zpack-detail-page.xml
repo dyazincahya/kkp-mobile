@@ -11,7 +11,7 @@
     </ActionBar>
 
     <ScrollView row="0" orientation="vertical" height="100%" width="100%">
-        <GridLayout rows="auto, auto, auto, auto" class="form-container">
+        <GridLayout rows="auto, auto, auto, auto, auto" class="form-container">
             <StackLayout orientation="vertical" row="0" marginTop="10">
                 <Label text="INFORMASI PEJEMPUTAN" class="form-segment-title" textWrap="true" />
                 <StackLayout>
@@ -54,6 +54,21 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout orientation="vertical" row="3" marginTop="20">
+                <Label text="INFORMASI BIAYA" class="form-segment-title"  textWrap="true" />
+                <StackLayout>
+                    <Label text="Biaya Karantina" class="form-label" />
+                    <Label text="{{ biaya_karantina }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Biaya Pengiriman" class="form-label" />
+                    <Label text="{{ biaya_pengiriman }}" class="form-value" textWrap="true" />
+                </StackLayout>
+                <StackLayout>
+                    <Label text="Total (Biaya Karantina + Biaya Pengiriman)" class="form-label" />
+                    <Label text="{{ biaya_total }}" class="form-value" textWrap="true" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout orientation="vertical" row="4" marginTop="20">
                 <Label text="INFORMASI LAINNYA" class="form-segment-title"  textWrap="true" />
                 <StackLayout>
                     <Label text="Nama Kurir Penjemput" class="form-label" />

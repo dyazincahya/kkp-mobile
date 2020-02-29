@@ -32,6 +32,9 @@ exports.onNavigatingTo = function(args) {
     context.set("customer_kota_tinggal", ndata.data.package_customer_kota_tinggal);
     context.set("customer_alamat", ndata.data.package_customer_alamat);
     context.set("kurir_nama", ndata.data.package_kurir_nama);
+    context.set("biaya_karantina", ndata.data.package_tagihan_karantina);
+    context.set("biaya_pengiriman", ndata.data.package_tagihan_pengiriman);
+    context.set("biaya_total", ndata.data.package_tagihan_total);
  
     timerModule.setTimeout(function () {
 

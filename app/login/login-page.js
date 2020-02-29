@@ -26,8 +26,8 @@ exports.onNavigatingTo = function(args) {
     context = GetModel; 
     gUserdata = {};
 
-    context.set("email", "k@example.com");
-    context.set("password", "123");
+    /*context.set("email", "k@example.com");
+    context.set("password", "123");*/
 
     page.bindingContext = context;
 };
