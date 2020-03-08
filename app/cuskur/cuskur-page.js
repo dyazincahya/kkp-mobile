@@ -145,8 +145,6 @@ exports.onActive = function(args){
 
 exports.onInactive = function(args){
     let dataid = args.object.get("dataid");
-    console.log(dataid);
-    return;
     confirm({
         title: "NON ACTIVE",
         message: "Apa kamu yakin ingin menonaktifkan akun ini?",
