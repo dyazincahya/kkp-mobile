@@ -145,6 +145,8 @@ exports.onActive = function(args){
 
 exports.onInactive = function(args){
     let dataid = args.object.get("dataid");
+    console.log(dataid);
+    return;
     confirm({
         title: "NON ACTIVE",
         message: "Apa kamu yakin ingin menonaktifkan akun ini?",
@@ -153,7 +155,7 @@ exports.onInactive = function(args){
     }).then((result) => {
         if(result){
             xLoading.show(gConfig.loadingOption);
-            GetModel.update_status({"id" : dataid, "status" : 0}).then(function (result){
+            GetModel.update_status({"id" : dataid, "status" : "OFF"}).then(function (result){
                 if(result.success == true){
                     getAllCustomer();
                     context.set("cuskurTabSelected", 0);

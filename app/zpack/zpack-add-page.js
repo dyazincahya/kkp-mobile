@@ -16,8 +16,7 @@ function reset_form(){
 
 exports.onLoaded = function(args) {
     const page = args.object;
-   
-    framePage = page.frame;
+    framePage = page.frame; 
 };
 
 exports.onNavigatingTo = function(args) {

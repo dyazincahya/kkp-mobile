@@ -7,7 +7,80 @@ const xLoading = new LoadingIndicatorModule();
 const xViewModel = require("../global-model");
 const GetModel = new xViewModel([]);
 
-var context, framePage; 
+var context, framePage, 
+    opsi_laporan = [
+        "semua customer dan package", 
+        "semua customer", 
+        "customer aktif", 
+        "customer non aktif", 
+        "customer pending", 
+        "semua package", 
+        "package request",
+        "package pickup",
+        "package karantina",
+        "package pengiriman",
+        "package selesai"
+    ]; 
+
+function param_report_tipe(param){
+    if(param == "semua customer dan package"){
+        return "ALL";
+    }
+
+    if(param == "semua customer" || param == "customer aktif" || param == "customer non aktif" || param == "customer pending"){
+        return "CUSTOMER";
+    }
+
+    if(param == "semua package" || param == "package request" || param == "package pickup" || param == "package karantina" || param == "package pengiriman" || param == "package selesai"){
+        return "PACKAGE";
+    }
+}
+
+function param_status(param){
+    if(param == "semua customer dan package"){
+        return "ALL";
+    }
+
+    if(param == "semua customer"){
+        return "ALL";
+    }
+
+    if(param == "customer aktif"){
+        return "ACTIVE";
+    }
+
+    if(param == "customer non aktif"){
+        return "NON_ACTIVE";
+    }
+
+    if(param == "customer pending"){
+        return "PENDING";
+    }
+
+    if(param == "semua package"){
+        return "ALL";
+    }
+
+    if(param == "package request"){
+        return "REQUEST";
+    }
+
+    if(param == "package pickup"){
+        return "PICKUP";
+    }
+
+    if(param == "package karantina"){
+        return "KARANTINA";
+    }
+
+    if(param == "package pengiriman"){
+        return "PENGIRIMAN";
+    }
+
+    if(param == "package selesai"){
+        return "SELESAI";
+    }
+}
 
 function reset_form(){
     context.set("star_date", "");
@@ -28,6 +101,8 @@ exports.onNavigatingTo = function(args) {
     context = GetModel;
     timerModule.setTimeout(function () {
         reset_form();
+        context.set("items_laporan", opsi_laporan);
+        context.set("laporanSelectedIndex", 0);
     }, gConfig.timeloader);
 
     page.bindingContext = context;
@@ -49,6 +124,8 @@ exports.sendMail = function(){
     let params = {
         star_date : data.star_date,
         end_date : data.end_date,
+        report_tipe : param_report_tipe(opsi_laporan[data.laporanSelectedIndex]),
+        status : param_status(opsi_laporan[data.laporanSelectedIndex]),
         to : data.to,
         cc : data.cc,
         bcc : data.bcc
@@ -67,6 +144,7 @@ exports.sendMail = function(){
             cancelable: false,
         },
     });
+
     GetModel.send_report(params).then(function (result){
         if(result.success == true){
             framePage.navigate({

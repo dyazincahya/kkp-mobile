@@ -3,6 +3,7 @@
     loaded="onLoaded" 
     navigatingTo="onNavigatingTo"  
     xmlns:datetime="nativescript-datetimepicker"
+    xmlns:dd="nativescript-drop-down"
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
@@ -12,6 +13,11 @@
 
     <ScrollView height="100%">
         <StackLayout>
+            <StackLayout class="form-container">
+                <Label text="OPSI LAPORAN" class="form-label" />
+                <dd:DropDown items="{{ items_laporan }}" class="form-dropdown" selectedIndex="{{ laporanSelectedIndex }}" 
+                        hint="~ Pilih Opsi Laporan ~" />
+            </StackLayout>
             <GridLayout rows="auto, auto" columns="*,*" class="form-container">
                 <StackLayout row="0" col="0">
                     <Label text="PERIODE LAPORAN"  padding="5" />
