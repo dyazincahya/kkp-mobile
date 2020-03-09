@@ -11,15 +11,15 @@ var context, framePage,
     opsi_laporan = [
         "semua customer dan package", 
         "semua customer", 
-        "customer aktif", 
+        /*"customer aktif", 
         "customer non aktif", 
-        "customer pending", 
+        "customer pending", */
         "semua package", 
-        "package request",
+        /*"package request",*/
         "package pickup",
         "package karantina",
-        "package pengiriman",
-        "package selesai"
+        "package pengiriman"
+        /*"package selesai"*/
     ]; 
 
 function param_report_tipe(param){
