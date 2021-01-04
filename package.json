@@ -15,7 +15,7 @@
     "lint": "eslint \"app/**/*.js\""
   },
   "dependencies": {
-	"@nstudio/nativescript-floatingactionbutton": "^2.1.0",
+    "@nstudio/nativescript-floatingactionbutton": "^2.1.0",
     "@nstudio/nativescript-loading-indicator": "^3.0.1",
     "@nstudio/nativescript-pulltorefresh": "^1.1.1",
     "nativescript-datetimepicker": "^1.2.2",
